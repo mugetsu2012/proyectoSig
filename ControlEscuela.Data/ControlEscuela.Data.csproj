@@ -47,12 +47,50 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ControlEscuelaContext.cs" />
+    <Compile Include="Mapping\ActividadMap.cs" />
+    <Compile Include="Mapping\AsignaturaMap.cs" />
+    <Compile Include="Mapping\AsignaturaSeccionGradoMap.cs" />
+    <Compile Include="Mapping\AsistenciaAlumnoMap.cs" />
+    <Compile Include="Mapping\AsistenciaMap.cs" />
+    <Compile Include="Mapping\CalificacionMap.cs" />
+    <Compile Include="Mapping\DiasAsignaturaSeccionGradoMap.cs" />
+    <Compile Include="Mapping\EstudianteMap.cs" />
+    <Compile Include="Mapping\FichaEstudianteMap.cs" />
+    <Compile Include="Mapping\GradoMap.cs" />
+    <Compile Include="Mapping\PeriodoMap.cs" />
+    <Compile Include="Mapping\PersonaMap.cs" />
+    <Compile Include="Mapping\PersonaUsuarioMap.cs" />
+    <Compile Include="Mapping\ProfesorMap.cs" />
+    <Compile Include="Mapping\ReporteMensualConductaMap.cs" />
+    <Compile Include="Mapping\RolMap.cs" />
+    <Compile Include="Mapping\SeccionGradoAlumnoMap.cs" />
+    <Compile Include="Mapping\SeccionGradoMap.cs" />
+    <Compile Include="Mapping\UsuarioMap.cs" />
+    <Compile Include="Migrations\201803060628412_MigrationInicial.cs" />
+    <Compile Include="Migrations\201803060628412_MigrationInicial.Designer.cs">
+      <DependentUpon>201803060628412_MigrationInicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ControlEscuela.Core\ControlEscuela.Core.csproj">
+      <Project>{7cb7a15f-991c-4b1d-8534-889593c5b57a}</Project>
+      <Name>ControlEscuela.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201803060628412_MigrationInicial.resx">
+      <DependentUpon>201803060628412_MigrationInicial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

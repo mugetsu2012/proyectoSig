@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>7cb7a15f-991c-4b1d-8534-889593c5b57a</ProjectGuid>
+    <ProjectGuid>{7CB7A15F-991C-4B1D-8534-889593C5B57A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ControlEscuela.Core</RootNamespace>
@@ -30,24 +30,39 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="Model\Notas\Actividad.cs" />
+    <Compile Include="Model\Asignaturas\Asignatura.cs" />
+    <Compile Include="Model\Asignaturas\AsignaturaSeccionGrado.cs" />
+    <Compile Include="Model\Alumnos\Asistencia.cs" />
+    <Compile Include="Model\Alumnos\AsistenciaAlumno.cs" />
+    <Compile Include="Model\Notas\Calificacion.cs" />
+    <Compile Include="Model\Asignaturas\DiasAsignaturaSeccionGrado.cs" />
+    <Compile Include="Model\Enums.cs" />
+    <Compile Include="Model\Alumnos\Estudiante.cs" />
+    <Compile Include="Model\Alumnos\FichaEstudiante.cs" />
+    <Compile Include="Model\Grados\Grado.cs" />
+    <Compile Include="Model\Notas\Periodo.cs" />
+    <Compile Include="Model\Alumnos\Persona.cs" />
+    <Compile Include="Model\Usuarios\PersonaUsuario.cs" />
+    <Compile Include="Model\Alumnos\Profesor.cs" />
+    <Compile Include="Model\Alumnos\ReporteMensualConducta.cs" />
+    <Compile Include="Model\Usuarios\Rol.cs" />
+    <Compile Include="Model\Grados\SeccionGrado.cs" />
+    <Compile Include="Model\Grados\SeccionGradoAlumno.cs" />
+    <Compile Include="Model\Usuarios\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+</Project>
