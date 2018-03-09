@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "Agregr/Editar Alumno";
+    ViewBag.TituloPagina = "Agregar/Editar Alumno";
+}
+
+<div class="row">
+
+    <div class="col-md-6 col-md-offset-3">
+        <div class="card">
+            <form id="LoginValidation" action="" method="">
+                <div class="card-header card-header-icon" data-background-color="rose">
+                    <i class="material-icons">contacts</i>
+                </div>
+                <div class="card-content">
+                    <h4 class="card-title">Registro de datos</h4>
+                    <div class="form-group label-floating">
+                        <label class="control-label">Nombres
+                            <star>*</star>
+                        </label>
+                        <input class="form-control" name="nombres" type="text" value=""/>
+                    </div>
+                    <div class="form-group label-floating">
+                        <label class="control-label">Apellidos
+                            <star>*</star>
+                        </label>
+                        <input class="form-control" name="apellidos" />
+                    </div>
+                    <div class="form-group label-floating">
+                        <label class="control-label">
+                            NIE
+                            <star>*</star>
+                        </label>
+                        <input class="form-control" name="Nie" />
+                    </div>
+                    <div class="form-group label-floating">
+                        <label class="control-label">
+                            Nombre Encargado
+                            <star>*</star>
+                        </label>
+                        <input class="form-control" name="Encargado" />
+                    </div>
+                    <div class="form-group label-floating">
+                        <label class="control-label">
+                            Teléfono Encargado
+                            <star>*</star>
+                        </label>
+                        <input class="form-control" name="telEncargado" />
+                    </div>
+                    <div class="form-group">
+                        <label class="label-control">Fecha de nacimiento</label>
+                        <input type="text" class="form-control datepicker" value="" name="fechaNac" />
+                    </div>
+                    <div class="form-group label-floating">
+                        <label class="control-label">
+                            Direción
+                            <star>*</star>
+                        </label>
+                    
+                        <textarea class="form-control" name="direccion"></textarea>
+                    </div>
+                    <div class="form-group">
+                    
+                        <select class="selectpicker" data-style="btn btn-primary btn-round" title="Single Select" data-size="7">
+                            <option disabled selected>Seleccione un grado</option>
+                            <option value="2">7º A</option>
+                            <option value="3">5º B</option>
+                            <option value="3">2º C</option>
+                        </select>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-rose btn-fill btn-wd">Guardar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function(e) {
+            $('.datepicker').datetimepicker({
+                format: 'DD/MM/YYYY',
+                icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-chevron-up",
+                    down: "fa fa-chevron-down",
+                    previous: 'fa fa-chevron-left',
+                    next: 'fa fa-chevron-right',
+                    today: 'fa fa-screenshot',
+                    clear: 'fa fa-trash',
+                    close: 'fa fa-remove'
+                }
+            });
+        });
+    </script>
+}
