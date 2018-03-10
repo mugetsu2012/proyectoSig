@@ -1,0 +1,198 @@
+﻿@{
+    ViewBag.Title = "Listado docentes";
+    ViewBag.TituloPagina = "Busqueda de docentes";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <form method="get" action="/" class="form-horizontal">
+                <div class="card-header card-header-text" data-background-color="rose">
+                    <h4 class="card-title">Filtros</h4>
+                </div>
+                <div class="card-content">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <input type="text" value="" placeholder="Nombre" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-rose btn-fill btn-wd">Buscar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-icon" data-background-color="rose">
+                <i class="material-icons">assignment</i>
+            </div>
+            <div class="card-content">
+                <h4 class="card-title">Listado docenetes</h4>
+                <div class="text-left">
+                    <button type="button" class="btn btn-success btn-fill btn-wd" data-toggle="modal" data-target="#modalUser">Nuevo</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            
+                            <th>Nombres</th>
+                            <th>Apellidos</th>
+                            <th>Identificación</th>
+                            <th>Teléfono</th>
+                            <th class="text-right"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td>Juan Luis</td>
+                                <td>Perez Gomez</td>
+                                <td>005575457</td>
+                                <td>2525-8974</td>
+                                <td class="td-actions text-right">
+                                    <button type="button" rel="tooltip" class="btn btn-info">
+                                        <i class="material-icons">person</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" class="btn btn-success">
+                                        <i class="material-icons">edit</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" class="btn btn-danger">
+                                        <i class="material-icons">close</i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td>Ernesto Jesus</td>
+                                <td>Mejia Rodriguez</td>
+                                <td>00547499</td>
+                                <td>2525-8988</td>
+                                <td class="td-actions text-right">
+                                    <button type="button" rel="tooltip" class="btn btn-info">
+                                        <i class="material-icons">person</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" class="btn btn-success">
+                                        <i class="material-icons">edit</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" class="btn btn-danger">
+                                        <i class="material-icons">close</i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td>Mario Alberto</td>
+                                <td>Galdamez Murcia</td>
+                                <td>007172397</td>
+                                <td>2525-7774</td>
+                                <td class="td-actions text-right">
+                                    <button type="button" rel="tooltip" class="btn btn-info">
+                                        <i class="material-icons">person</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" class="btn btn-success">
+                                        <i class="material-icons">edit</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" class="btn btn-danger">
+                                        <i class="material-icons">close</i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td>Juana Maria</td>
+                                <td>Salazar Pe;a</td>
+                                <td>004155637</td>
+                                <td>2525-1424</td>
+                                <td class="td-actions text-right">
+                                    <button type="button" rel="tooltip" class="btn btn-info">
+                                        <i class="material-icons">person</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" class="btn btn-success">
+                                        <i class="material-icons">edit</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" class="btn btn-danger">
+                                        <i class="material-icons">close</i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td>Katherine Lorena</td>
+                                <td>Mendoza Escobar</td>
+                                <td>00784547</td>
+                                <td>2525-8644</td>
+                                <td class="td-actions text-right">
+                                    <button type="button" rel="tooltip" class="btn btn-info">
+                                        <i class="material-icons">person</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" class="btn btn-success">
+                                        <i class="material-icons">edit</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" class="btn btn-danger">
+                                        <i class="material-icons">close</i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Classic Modal -->
+<div class="modal fade" id="modalUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="material-icons">clear</i>
+                </button>
+                <h4 class="modal-title">Agregar Docente</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group label-floating">
+                    <label class="control-label">
+                        Nombres
+                        <star>*</star>
+                    </label>
+                    <input class="form-control" name="nombres" type="text" value="" />
+                </div>
+                <div class="form-group label-floating">
+                    <label class="control-label">
+                        Apellidos
+                        <star>*</star>
+                    </label>
+                    <input class="form-control" name="apellidos" type="text" value="" />
+                </div>
+                <div class="form-group label-floating">
+                    <label class="control-label">
+                        Identificación
+                        <star>*</star>
+                    </label>
+                    <input class="form-control" name="nombres" type="text" value="" />
+                </div>
+                <div class="form-group label-floating">
+                    <label class="control-label">
+                        Teléfono
+                        <star>*</star>
+                    </label>
+                    <input class="form-control" name="telefono" type="text" value="" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success">Agregar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  End Modal -->

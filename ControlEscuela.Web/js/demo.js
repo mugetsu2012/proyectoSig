@@ -1032,7 +1032,7 @@ demo = {
         d = today.getDate();
 
         $calendar.fullCalendar({
-            viewRender: function(view, element) {
+            viewRender: function (view, element) {
                 // We make sure that we activate the perfect scrollbar when the view isn't on Month
                 if (view.name != 'month') {
                     $(element).find('.fc-scroller').perfectScrollbar();
@@ -1059,7 +1059,7 @@ demo = {
                 }
             },
 
-            select: function(start, end) {
+            select: function (start, end) {
 
                 // on select we show the Sweet Alert modal with an input
                 swal({
@@ -1071,7 +1071,7 @@ demo = {
                     confirmButtonClass: 'btn btn-success',
                     cancelButtonClass: 'btn btn-danger',
                     buttonsStyling: false
-                }).then(function(result) {
+                }).then(function (result) {
 
                     var eventData;
                     event_title = $('#input-field').val();

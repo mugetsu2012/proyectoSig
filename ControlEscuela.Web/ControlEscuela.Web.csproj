@@ -141,10 +141,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdministracionController.cs" />
     <Compile Include="Controllers\AlumnosController.cs" />
     <Compile Include="Controllers\AsignaturasController.cs" />
+    <Compile Include="Controllers\GestionController.cs" />
     <Compile Include="Controllers\GradosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -390,6 +393,13 @@
     <Content Include="Views\Asignaturas\Listado.cshtml" />
     <Content Include="Views\Grados\Listado.cshtml" />
     <Content Include="Views\Grados\RegistrarAsistencia.cshtml" />
+    <Content Include="Views\Gestion\Actividades.cshtml" />
+    <Content Include="Views\Gestion\Periodos.cshtml" />
+    <Content Include="Views\Gestion\Calificar.cshtml" />
+    <Content Include="Views\Administracion\ListaUsuarios.cshtml" />
+    <Content Include="Views\Administracion\ListadoDocentes.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

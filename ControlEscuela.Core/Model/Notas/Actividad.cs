@@ -1,4 +1,5 @@
 ﻿using System;
+using ControlEscuela.Core.Model.Asignaturas;
 using ControlEscuela.Core.Model.Grados;
 
 namespace ControlEscuela.Core.Model.Notas
@@ -9,6 +10,13 @@ namespace ControlEscuela.Core.Model.Notas
     public class Actividad
     {
         public int Codigo { get; set; }
+
+        /// <summary>
+        /// Nombre de la actividad
+        /// </summary>
+        public string Nombre { get; set; }
+
+        public int IdAsignatura { get; set; }
 
         /// <summary>
         /// Seccion para la cual creamos la actividad
@@ -30,5 +38,7 @@ namespace ControlEscuela.Core.Model.Notas
         public Periodo Periodo { get; set; }
 
         public SeccionGrado SeccionGrado { get; set; }
+
+        public Asignatura Asignatura { get; set; }
     }
 }

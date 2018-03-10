@@ -18,9 +18,11 @@ namespace ControlEscuela.Data.Mapping
             Property(t => t.Codigo).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(t => t.Ponderacion).IsRequired();
             Property(t => t.FechaRealizacion).IsRequired();
+            Property(t => t.Nombre).IsRequired().HasMaxLength(500);
 
             HasRequired(t => t.Periodo).WithMany().HasForeignKey(f => f.IdPeriodo);
             HasRequired(t => t.SeccionGrado).WithMany(m => m.Actividades).HasForeignKey(f => f.IdSeccionGrado);
+            HasRequired(t => t.Asignatura).WithMany().HasForeignKey(f => f.IdAsignatura);
 
             ToTable("Actividad");
 
