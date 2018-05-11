@@ -20,8 +20,8 @@ namespace ControlEscuela.Data.Mapping
             Property(t => t.Codigo).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(t => t.Nombres).IsRequired().HasColumnType("varchar").HasMaxLength(500);
             Property(t => t.Apellidos).IsRequired().HasColumnType("varchar").HasMaxLength(500);
-            Property(t => t.Edad).IsRequired();
             Property(t => t.FechaNacimiento).IsRequired();
+            Property(t => t.FechaIngreso).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Computed);
             Property(t => t.Activo).IsRequired();
 
         }

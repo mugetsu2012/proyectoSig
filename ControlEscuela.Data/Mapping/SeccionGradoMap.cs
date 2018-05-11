@@ -20,7 +20,7 @@ namespace ControlEscuela.Data.Mapping
             Property(t => t.Turno).IsRequired();
             Property(t => t.TextoTurno).IsRequired().HasMaxLength(100).HasColumnType("varchar");
 
-            HasRequired(t => t.Grado).WithMany().HasForeignKey(f => f.IdGrado);
+            HasRequired(t => t.Grado).WithMany(m => m.SeccionesGrados).HasForeignKey(f => f.IdGrado);
             HasRequired(t => t.Profesor).WithMany().HasForeignKey(f => f.IdProfesor);
 
             ToTable("SeccionGrado");

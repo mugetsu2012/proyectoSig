@@ -13,12 +13,26 @@ namespace ControlEscuela.Core.Model.Alumnos
 
         public string Apellidos { get; set; }
 
-        public int Edad { get; set; }
-
         public DateTime FechaNacimiento { get; set; }
 
-        public string FechaIngreso { get; set; }
+        public DateTime FechaIngreso { get; set; }
 
         public bool Activo { get; set; }
+
+        /// <summary>
+        /// En base a la fecha de nacimiento calcula la edad de una persona
+        /// </summary>
+        /// <returns></returns>
+        public int CalcularEdad()
+        {
+            // Save today's date.
+            var hoy = DateTime.Today;
+
+            // Calculate the age.
+            var age = hoy.Year - FechaNacimiento.Year;
+            // Go back to the year the person was born in case of a leap year
+            if (FechaNacimiento > hoy.AddYears(-age)) age--;
+            return age;
+        }
     }
 }

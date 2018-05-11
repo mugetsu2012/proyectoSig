@@ -19,6 +19,8 @@ namespace ControlEscuela.Core.Model.Usuarios
         /// </summary>
         public int IdRol { get; set; }
 
+        public int? IdPersona { get; set; }
+
         /// <summary>
         /// Fecha de ingreso de este rol
         /// </summary>
@@ -30,5 +32,10 @@ namespace ControlEscuela.Core.Model.Usuarios
         public bool Activo { get; set; }
 
         public Rol Rol { get; set; }
+
+        /// <summary>
+        /// Objeto persona Usuario
+        /// </summary>
+        public PersonaUsuario PersonaUsuario { get; set; }
     }
 }

@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>a6a65722-a255-41ec-a742-2ecbbb3b8220</ProjectGuid>
+    <ProjectGuid>{A6A65722-A255-41EC-A742-2ECBBB3B8220}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ControlEscuela.Services</RootNamespace>
@@ -30,24 +30,34 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="AdministracionService.cs" />
+    <Compile Include="AlumnosService.cs" />
+    <Compile Include="AsignaturaService.cs" />
+    <Compile Include="CatalogosService.cs" />
+    <Compile Include="GestionService.cs" />
+    <Compile Include="GradosService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeguridadService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ControlEscuela.Core\ControlEscuela.Core.csproj">
+      <Project>{7cb7a15f-991c-4b1d-8534-889593c5b57a}</Project>
+      <Name>ControlEscuela.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ControlEscuela.Data\ControlEscuela.Data.csproj">
+      <Project>{a66ecf9c-417b-4ca2-ad3b-35e39b812a9c}</Project>
+      <Name>ControlEscuela.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+</Project>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ControlEscuela.Core.Model.Grados
 {
@@ -16,5 +17,10 @@ namespace ControlEscuela.Core.Model.Grados
             get => NombreGrado.ToString();
             set => NombreGrado = (Enums.NombresGrados)Enum.Parse(typeof(Enums.NombresGrados), value);
         }
+
+        /// <summary>
+        /// Listado de secciones para este grado
+        /// </summary>
+        public List<SeccionGrado> SeccionesGrados { get; set; }
     }
 }

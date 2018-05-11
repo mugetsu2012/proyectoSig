@@ -79,6 +79,18 @@
     <Compile Include="Migrations\201803100522398_AgregoAsignaturaActividad.Designer.cs">
       <DependentUpon>201803100522398_AgregoAsignaturaActividad.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805100532252_CambiosData.cs" />
+    <Compile Include="Migrations\201805100532252_CambiosData.Designer.cs">
+      <DependentUpon>201805100532252_CambiosData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805102104288_CambiosDataPersona.cs" />
+    <Compile Include="Migrations\201805102104288_CambiosDataPersona.Designer.cs">
+      <DependentUpon>201805102104288_CambiosDataPersona.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805110041558_CambiosUsuario.cs" />
+    <Compile Include="Migrations\201805110041558_CambiosUsuario.Designer.cs">
+      <DependentUpon>201805110041558_CambiosUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
@@ -104,6 +116,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803100522398_AgregoAsignaturaActividad.resx">
       <DependentUpon>201803100522398_AgregoAsignaturaActividad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805100532252_CambiosData.resx">
+      <DependentUpon>201805100532252_CambiosData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805102104288_CambiosDataPersona.resx">
+      <DependentUpon>201805102104288_CambiosDataPersona.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805110041558_CambiosUsuario.resx">
+      <DependentUpon>201805110041558_CambiosUsuario.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

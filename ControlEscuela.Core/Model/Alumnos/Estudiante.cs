@@ -21,5 +21,6 @@ namespace ControlEscuela.Core.Model.Alumnos
         public int IdSeccionGrado { get; set; }
 
         public SeccionGrado SeccionGrado { get; set; }
+        
     }
 }

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model ControlEscuela.Web.Models.DocentesVm
+@{
     ViewBag.Title = "Listado docentes";
     ViewBag.TituloPagina = "Busqueda de docentes";
 }
@@ -6,7 +7,9 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card">
-            <form method="get" action="/" class="form-horizontal">
+            <form method="get" action="/" class="form-horizontal"></form>
+            @using (Html.BeginForm("ListadoDocentes", "Administracion", FormMethod.Get, FormMethod.Get, new { @class = "form-horizontal" }))
+            {
                 <div class="card-header card-header-text" data-background-color="rose">
                     <h4 class="card-title">Filtros</h4>
                 </div>
@@ -14,7 +17,7 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <input type="text" value="" placeholder="Nombre" class="form-control" />
+                                @Html.TextBoxFor(x => x.Nombre, new { placeholder = "Nombre" , @class="form-control"})
                             </div>
                         </div>
                     </div>
@@ -22,7 +25,7 @@
                         <button type="submit" class="btn btn-rose btn-fill btn-wd">Buscar</button>
                     </div>
                 </div>
-            </form>
+            }
         </div>
     </div>
     <div class="col-md-12">
@@ -48,96 +51,36 @@
                         </tr>
                         </thead>
                         <tbody>
+                        @foreach (var item in Model.Profesores)
+                        {
                             <tr>
 
-                                <td>Juan Luis</td>
-                                <td>Perez Gomez</td>
-                                <td>005575457</td>
-                                <td>2525-8974</td>
+                                <td>@item.Nombres</td>
+                                <td>@item.Apellidos</td>
+                                <td>@item.NumeroIdentificacion</td>
+                                <td>@item.Telefono</td>
                                 <td class="td-actions text-right">
-                                    <button type="button" rel="tooltip" class="btn btn-info">
-                                        <i class="material-icons">person</i>
-                                    </button>
-                                    <button type="button" rel="tooltip" class="btn btn-success">
+                                    <button type="button" rel="tooltip" title="Editar" class="btn btn-success editProfe" data-codigo="@item.Codigo">
                                         <i class="material-icons">edit</i>
                                     </button>
-                                    <button type="button" rel="tooltip" class="btn btn-danger">
-                                        <i class="material-icons">close</i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
+                                    @if (item.Activo)
+                                    {
 
-                                <td>Ernesto Jesus</td>
-                                <td>Mejia Rodriguez</td>
-                                <td>00547499</td>
-                                <td>2525-8988</td>
-                                <td class="td-actions text-right">
-                                    <button type="button" rel="tooltip" class="btn btn-info">
-                                        <i class="material-icons">person</i>
-                                    </button>
-                                    <button type="button" rel="tooltip" class="btn btn-success">
-                                        <i class="material-icons">edit</i>
-                                    </button>
-                                    <button type="button" rel="tooltip" class="btn btn-danger">
-                                        <i class="material-icons">close</i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
 
-                                <td>Mario Alberto</td>
-                                <td>Galdamez Murcia</td>
-                                <td>007172397</td>
-                                <td>2525-7774</td>
-                                <td class="td-actions text-right">
-                                    <button type="button" rel="tooltip" class="btn btn-info">
-                                        <i class="material-icons">person</i>
-                                    </button>
-                                    <button type="button" rel="tooltip" class="btn btn-success">
-                                        <i class="material-icons">edit</i>
-                                    </button>
-                                    <button type="button" rel="tooltip" class="btn btn-danger">
-                                        <i class="material-icons">close</i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
+                                        <button type="button" rel="tooltip" title="Desactivar" class="btn btn-danger desactivarProfe" data-codigo="@item.Codigo">
+                                            <i class="material-icons">thumb_down</i>
+                                        </button>
+                                    }
+                                    else
+                                    {
+                                        <button type="button" rel="tooltip" title="Activar" class="btn btn-success desactivarProfe" data-codigo="@item.Codigo">
+                                            <i class="material-icons">thumb_up</i>
+                                        </button>
+                                    }
 
-                                <td>Juana Maria</td>
-                                <td>Salazar Pe;a</td>
-                                <td>004155637</td>
-                                <td>2525-1424</td>
-                                <td class="td-actions text-right">
-                                    <button type="button" rel="tooltip" class="btn btn-info">
-                                        <i class="material-icons">person</i>
-                                    </button>
-                                    <button type="button" rel="tooltip" class="btn btn-success">
-                                        <i class="material-icons">edit</i>
-                                    </button>
-                                    <button type="button" rel="tooltip" class="btn btn-danger">
-                                        <i class="material-icons">close</i>
-                                    </button>
                                 </td>
                             </tr>
-                            <tr>
-
-                                <td>Katherine Lorena</td>
-                                <td>Mendoza Escobar</td>
-                                <td>00784547</td>
-                                <td>2525-8644</td>
-                                <td class="td-actions text-right">
-                                    <button type="button" rel="tooltip" class="btn btn-info">
-                                        <i class="material-icons">person</i>
-                                    </button>
-                                    <button type="button" rel="tooltip" class="btn btn-success">
-                                        <i class="material-icons">edit</i>
-                                    </button>
-                                    <button type="button" rel="tooltip" class="btn btn-danger">
-                                        <i class="material-icons">close</i>
-                                    </button>
-                                </td>
-                            </tr>
+                        }
                         </tbody>
                     </table>
                 </div>
@@ -158,41 +101,94 @@
                 </button>
                 <h4 class="modal-title">Agregar Docente</h4>
             </div>
-            <div class="modal-body">
-                <div class="form-group label-floating">
-                    <label class="control-label">
-                        Nombres
-                        <star>*</star>
-                    </label>
-                    <input class="form-control" name="nombres" type="text" value="" />
-                </div>
-                <div class="form-group label-floating">
-                    <label class="control-label">
-                        Apellidos
-                        <star>*</star>
-                    </label>
-                    <input class="form-control" name="apellidos" type="text" value="" />
-                </div>
-                <div class="form-group label-floating">
-                    <label class="control-label">
-                        Identificación
-                        <star>*</star>
-                    </label>
-                    <input class="form-control" name="nombres" type="text" value="" />
-                </div>
-                <div class="form-group label-floating">
-                    <label class="control-label">
-                        Teléfono
-                        <star>*</star>
-                    </label>
-                    <input class="form-control" name="telefono" type="text" value="" />
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success">Agregar</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            <div id="containerFrmDocente">
+                @{Html.RenderPartial("_FrmDocente", Model.AgregarEditarProfesorVm);}
             </div>
         </div>
     </div>
 </div>
 <!--  End Modal -->
+
+<input type="hidden" id="urlGetForm" value="@Url.Action("GetDocenteEdit","Administracion")"/>
+<input type="hidden" id="urlToggleProfe" value="@Url.Action("ToggleEstadoDocente","Administracion")" />
+
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+
+            iniciarPlugins();
+
+            $(document).on("click",".editProfe", function(e) {
+                e.preventDefault();
+                swal({});
+                swal.showLoading();
+
+                var idProfe = $(this).data('codigo');
+
+                var url = $("#urlGetForm").val();
+
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: { idProfesor: idProfe },
+                    success: function (data) {
+
+                        $("#containerFrmDocente").html(data.partial);
+                        iniciarPlugins();
+                        $("#modalUser").modal("show");
+                        swal.close();
+                    },
+                    error: function() {
+                        swal("Oops!", "Al parecer ha ocurriodo un error", "error");
+                    }
+                });
+
+
+            });
+
+            $(document).on("click", ".desactivarProfe", function (e) {
+                e.preventDefault();
+                swal({});
+                swal.showLoading();
+
+                var idProfe = $(this).data('codigo');
+
+                var url = $("#urlToggleProfe").val();
+
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: { idProfesor: idProfe },
+                    success: function (data) {
+
+                        location.reload(true);
+                    },
+                    error: function () {
+                        swal("Oops!", "Al parecer ha ocurriodo un error", "error");
+                    }
+                });
+
+
+            });
+
+        });
+
+        function iniciarPlugins() {
+            $('.datepicker').datetimepicker({
+                format: 'DD/MM/YYYY',
+                icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-chevron-up",
+                    down: "fa fa-chevron-down",
+                    previous: 'fa fa-chevron-left',
+                    next: 'fa fa-chevron-right',
+                    today: 'fa fa-screenshot',
+                    clear: 'fa fa-trash',
+                    close: 'fa fa-remove'
+                }
+            });
+        }
+    </script>
+}

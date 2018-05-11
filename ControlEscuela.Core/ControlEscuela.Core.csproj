@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,7 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dtos\AsistenciaAlumnoDto.cs" />
+    <Compile Include="Dtos\CalificarActividadDto.cs" />
+    <Compile Include="Dtos\NotaAlumnoDto.cs" />
+    <Compile Include="IAdministracionService.cs" />
+    <Compile Include="IAlumnosService.cs" />
+    <Compile Include="IAsignaturaService.cs" />
+    <Compile Include="ICatalogosService.cs" />
+    <Compile Include="IGestionService.cs" />
+    <Compile Include="IGradosService.cs" />
     <Compile Include="IRepository.cs" />
+    <Compile Include="Dtos\MarcarAsistenciaDto.cs" />
+    <Compile Include="ISeguridadService.cs" />
     <Compile Include="Model\Notas\Actividad.cs" />
     <Compile Include="Model\Asignaturas\Asignatura.cs" />
     <Compile Include="Model\Asignaturas\AsignaturaSeccionGrado.cs" />
@@ -63,6 +75,5 @@
     <Compile Include="Model\Usuarios\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

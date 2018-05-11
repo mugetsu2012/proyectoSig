@@ -1,0 +1,54 @@
+﻿@model ControlEscuela.Web.Models.AgregarEditarSeccionGradoVm
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                <i class="material-icons">clear</i>
+            </button>
+            <h4 class="modal-title">Agregar seccion</h4>
+        </div>
+        @using (Html.BeginForm("AgregarEditarSeccionGrado", "Grados", FormMethod.Post))
+        {
+            
+            <div class="modal-body">
+                <div class="form-group">
+                    @Html.DropDownListFor(x => x.IdProfesor, Model.Profesores.Select(profe => new SelectListItem()
+                    {
+                        Text = profe.Nombres + " " + profe.Apellidos,
+                        Value = profe.Codigo.ToString()
+                    }).ToList(),new { @class="selectpicker", data_style="btn btn-primary btn-round", title="Seleccione un profe", data_size=Model.Profesores.Count })
+                </div>
+                
+                @if (Model.Codigo == 0)
+                {
+                    <div class="form-group">
+                        @Html.DropDownListFor(x => x.IdGrado, Model.Grados.Select(grado => new SelectListItem()
+                        {
+                            Text = grado.TextoGrado,
+                            Value = grado.Codigo.ToString()
+                        }).ToList(),new { @class="selectpicker", data_style="btn btn-primary btn-round", title="Seleccione un grado", data_size=Model.Grados.Count })
+                    </div>
+                }
+                else
+                {
+                    @Html.HiddenFor(x => x.IdGrado)
+                }
+                
+                <div class="form-group">
+                    @*<select class="selectpicker"  data-style="btn btn-primary btn-round" title="Single Select" data-size="7">
+                    <option disabled selected>Seleccione un turno</option>
+                    <option value="a">Mañana</option>
+                    <option value="b">Tarde</option>
+                </select>*@
+                    @Html.EnumDropDownListFor(x => x.Turno, new { @class = "selectpicker", data_style = "btn btn-primary btn-round", title = "Seleccione un turno", data_size = 7 })
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success">Agregar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            </div>
+        }
+    </div>
+</div>

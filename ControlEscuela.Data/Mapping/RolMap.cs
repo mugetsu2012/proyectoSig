@@ -15,7 +15,7 @@ namespace ControlEscuela.Data.Mapping
         {
             HasKey(t => t.Codigo);
 
-            Property(t => t.Codigo).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Computed);
+            Property(t => t.Codigo).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(t => t.Nombre).IsRequired().HasMaxLength(100).HasColumnType("varchar");
             Property(t => t.Descripcion).IsRequired().HasMaxLength(5000).HasColumnType("varchar");
 

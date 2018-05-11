@@ -46,5 +46,10 @@ namespace ControlEscuela.Core.Model.Grados
 
         public List<SeccionGradoAlumno> SeccionesGradoAlumnos { get; set; }
 
+        public string GetTextoNombre()
+        {
+            return IdGrado + "° " + LetraCorrelativo;
+        }
+
     }
 }

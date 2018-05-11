@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +25,11 @@ namespace ControlEscuela.Core.Model
 
         public enum Turno
         {
+            [Display(Name = "Todos")]
+            Todos,
+            [Display(Name = "Mañana")]
             Manniana,
+            [Display(Name = "Tarde")]
             Tarde
         }
 
@@ -60,6 +66,13 @@ namespace ControlEscuela.Core.Model
             EvaluadoCorto,
             Extracurricular,
             Otro
+        }
+        
+        public enum Estado
+        {
+            Todos,
+            Activo,
+            Inactivo
         }
 
 

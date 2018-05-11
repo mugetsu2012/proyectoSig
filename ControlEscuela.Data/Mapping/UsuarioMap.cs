@@ -19,7 +19,9 @@ namespace ControlEscuela.Data.Mapping
             Property(t => t.FechaIngreso).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Computed);
             Property(t => t.Activo).IsRequired();
             Property(t => t.Password).IsRequired();
+            Property(t => t.IdPersona).IsOptional();
 
+            HasOptional(t => t.PersonaUsuario).WithMany().HasForeignKey(f => new {f.IdPersona, f.IdUsuario});
             HasRequired(t => t.Rol).WithMany(m => m.Usuarios).HasForeignKey(f => f.IdRol);
 
             ToTable("Usuario");

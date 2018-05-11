@@ -97,7 +97,7 @@ namespace ControlEscuela.Data
                 query = includeProperties.Aggregate(query,
                     (current, include) => current.Include(include));
             }
-            return query.FirstOrDefault();
+            return query.AsNoTracking().FirstOrDefault();
         }
 
         public List<T> GetList(Expression<Func<T, bool>> predicate, Expression<Func<T, object>>[] includeProperties = null)
@@ -108,7 +108,42 @@ namespace ControlEscuela.Data
                 query = includeProperties.Aggregate(query,
                     (current, include) => current.Include(include));
             }
+            return query.AsNoTracking().ToList();
+        }
+
+        public T FindByTracking(Expression<Func<T, bool>> predicate, Expression<Func<T, object>>[] includeProperties = null)
+        {
+            IQueryable<T> query = Entities.Where(predicate);
+            if (includeProperties != null)
+            {
+                query = includeProperties.Aggregate(query,
+                    (current, include) => current.Include(include));
+            }
+            return query.FirstOrDefault();
+        }
+
+        public List<T> GetListTracking(Expression<Func<T, bool>> predicate, Expression<Func<T, object>>[] includeProperties = null)
+        {
+            IQueryable<T> query = Entities.Where(predicate);
+            if (includeProperties != null)
+            {
+                query = includeProperties.Aggregate(query,
+                    (current, include) => current.Include(include));
+            }
             return query.ToList();
+        }
+
+        public void SaveChanges()
+        {
+            try
+            {
+                _dbContext.SaveChanges();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                Exception fail = CrearExecption(dbEx);
+                throw fail;
+            }
         }
 
         public IQueryable<T> Table

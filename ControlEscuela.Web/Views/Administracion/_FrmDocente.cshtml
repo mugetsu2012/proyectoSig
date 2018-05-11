@@ -1,0 +1,53 @@
+﻿@model ControlEscuela.Web.Models.AgregarEditarProfesorVm
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm("AgregarEditarDocente", "Administracion", FormMethod.Post, new {Id="frmDocente"}))
+{
+    @Html.ValidationSummary()
+    <div class="modal-body">
+        <div class="form-group label-floating">
+            <label class="control-label">
+                Nombres
+                <star>*</star>
+            </label>
+            @Html.TextBoxFor(x => x.Nombres, new { @class = "form-control" })
+        </div>
+        <div class="form-group label-floating">
+            <label class="control-label">
+                Apellidos
+                <star>*</star>
+            </label>
+            @Html.TextBoxFor(x => x.Apellidos, new { @class = "form-control" })
+        </div>
+        <div class="form-group label-floating">
+            <label class="control-label">
+                Identificación
+                <star>*</star>
+            </label>
+            @Html.TextBoxFor(x => x.NumeroIdentificacion, new { @class = "form-control" })
+        </div>
+        <div class="form-group label-floating">
+            <label class="control-label">
+                Teléfono
+                <star>*</star>
+            </label>
+            @Html.TextBoxFor(x => x.Telefono, new { @class = "form-control" })
+        </div>
+        <div class="form-group label-floating">
+            <label class="control-label">
+                Fecha nacimiento
+                <star>*</star>
+            </label>
+            @Html.TextBoxFor(x => x.FechaNacimiento, new { @class = "form-control datepicker" })
+        </div>
+        
+        @Html.HiddenFor(x => x.Codigo)
+        @Html.HiddenFor(x => x.Activo)
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-success">Agregar</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+    </div>
+}

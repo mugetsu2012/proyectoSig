@@ -12,7 +12,7 @@ namespace ControlEscuela.Data.Mapping
     {
         public EstudianteMap()
         {
-            HasKey(t => t.Nie);
+            HasKey(t => t.Codigo);
 
             Property(t => t.NombreEncargado).IsRequired().HasMaxLength(500);
             Property(t => t.TelefonoEncargado).IsRequired().HasMaxLength(20);

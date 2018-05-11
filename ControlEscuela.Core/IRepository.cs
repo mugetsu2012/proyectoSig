@@ -20,5 +20,11 @@ namespace ControlEscuela.Core
         T FindBy(Expression<Func<T, bool>> predicate, Expression<Func<T, object>>[] includeProperties = null);
 
         List<T> GetList(Expression<Func<T, bool>> predicate, Expression<Func<T, object>>[] includeProperties = null);
+
+        T FindByTracking(Expression<Func<T, bool>> predicate, Expression<Func<T, object>>[] includeProperties = null);
+
+        List<T> GetListTracking(Expression<Func<T, bool>> predicate, Expression<Func<T, object>>[] includeProperties = null);
+
+        void SaveChanges();
     }
 }
