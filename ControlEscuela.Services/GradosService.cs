@@ -42,7 +42,7 @@ namespace ControlEscuela.Services
                 (x.Turno == turno || turno == Enums.Turno.Todos), new Expression<Func<SeccionGrado, object>>[]
             {
                 x => x.Profesor,
-                x => x.SeccionesGradoAlumnos,
+                x => x.Estudiantes,
                 x => x.Actividades,
                 x => x.Grado
             });

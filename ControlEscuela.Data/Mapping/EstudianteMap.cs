@@ -18,7 +18,7 @@ namespace ControlEscuela.Data.Mapping
             Property(t => t.TelefonoEncargado).IsRequired().HasMaxLength(20);
             Property(t => t.Direccion).IsRequired().HasMaxLength(1000);
 
-            HasRequired(t => t.SeccionGrado).WithMany().HasForeignKey(f => f.IdSeccionGrado);
+            HasRequired(t => t.SeccionGrado).WithMany(m => m.Estudiantes).HasForeignKey(f => f.IdSeccionGrado);
 
             ToTable("Estudiante");
         }

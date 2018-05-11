@@ -12,19 +12,35 @@ namespace ControlEscuela.Web.Controllers
     public class AlumnosController : Controller
     {
         private readonly IAlumnosService _alumnosService;
+        private readonly IGradosService _gradosService;
+        private readonly ICatalogosService _catalogosService;
 
-        public AlumnosController(IAlumnosService alumnosService)
+        public AlumnosController(IAlumnosService alumnosService,
+            IGradosService gradosService,
+            ICatalogosService catalogosService)
         {
             _alumnosService = alumnosService;
+            _gradosService = gradosService;
+            _catalogosService = catalogosService;
         }
 
         // GET: Alumnos
-        public ActionResult Listado()
+        public ActionResult Listado(string nombre="", string nie = "", int idSeccionGrado = 0)
         {
-            return View();
+            ListadoAlumnosVm model = new ListadoAlumnosVm()
+            {
+                Nombre = nombre,
+                IdSeccionGrado = idSeccionGrado,
+                Nie = nie,
+                SeccionesGrado = _catalogosService.GetSeccionesGrados(),
+                Estudiantes = _alumnosService.GetListaEstudiantes(nombre,nie,idSeccionGrado)
+            };
+
+            return View(model);
         }
 
-        public ActionResult AgregarEditar(int idAlumno = 0)
+        
+        public ActionResult Alumno(int idAlumno = 0)
         {
             AgregarEditarAlumnoVm model = new AgregarEditarAlumnoVm();
             if (idAlumno != 0)
@@ -38,9 +54,41 @@ namespace ControlEscuela.Web.Controllers
                 model.NombreEncargado = estudiante.NombreEncargado;
                 model.Nombres = estudiante.Nombres;
                 model.TelefonoEncargado = estudiante.TelefonoEncargado;
+                model.Codigo = estudiante.Codigo;
             }
 
+            model.SeccionesGrado = _catalogosService.GetSeccionesGrados();
             return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult AgregarEditarAlumno(AgregarEditarAlumnoVm agregarEditarAlumnoVm)
+        {
+            Estudiante estudiante = new Estudiante()
+            {
+                Activo = agregarEditarAlumnoVm.Activo,
+                Apellidos = agregarEditarAlumnoVm.Apellidos,
+                Codigo = agregarEditarAlumnoVm.Codigo,
+                Direccion = agregarEditarAlumnoVm.Direccion,
+                FechaNacimiento = agregarEditarAlumnoVm.FechaNacimiento,
+                IdSeccionGrado = agregarEditarAlumnoVm.IdSeccionGrado,
+                Nie = agregarEditarAlumnoVm.Nie,
+                NombreEncargado = agregarEditarAlumnoVm.NombreEncargado,
+                Nombres = agregarEditarAlumnoVm.Nombres,
+                TelefonoEncargado = agregarEditarAlumnoVm.TelefonoEncargado,
+
+            };
+
+            _alumnosService.AgregarEditarEstudiante(estudiante);
+
+            return RedirectToAction("Alumno", new {idAlumno = estudiante.Codigo});
+        }
+
+        [HttpPost]
+        public ActionResult ToggleEstadoAlumno(int idAlumno)
+        {
+            _alumnosService.ActivarDesactivarEstudiante(idAlumno);
+            return RedirectToAction("Listado");
         }
     }
 }

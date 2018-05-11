@@ -15,8 +15,7 @@ namespace ControlEscuela.Core
         /// Metodo usado para crear/editar estudiantes
         /// </summary>
         /// <param name="estudiante"></param>
-        /// <param name="esNuevo">Indica si el estudiante es un nuevo estudiante</param>
-        void AgregarEditarEstudiante(Estudiante estudiante, bool esNuevo);
+        void AgregarEditarEstudiante(Estudiante estudiante);
 
         /// <summary>
         /// Regresa una lista de estudiantes

@@ -64,7 +64,6 @@
     <Compile Include="Mapping\ProfesorMap.cs" />
     <Compile Include="Mapping\ReporteMensualConductaMap.cs" />
     <Compile Include="Mapping\RolMap.cs" />
-    <Compile Include="Mapping\SeccionGradoAlumnoMap.cs" />
     <Compile Include="Mapping\SeccionGradoMap.cs" />
     <Compile Include="Mapping\UsuarioMap.cs" />
     <Compile Include="Migrations\201803060628412_MigrationInicial.cs" />
@@ -90,6 +89,10 @@
     <Compile Include="Migrations\201805110041558_CambiosUsuario.cs" />
     <Compile Include="Migrations\201805110041558_CambiosUsuario.Designer.cs">
       <DependentUpon>201805110041558_CambiosUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805110617027_CambiosSeccionAlumno.cs" />
+    <Compile Include="Migrations\201805110617027_CambiosSeccionAlumno.Designer.cs">
+      <DependentUpon>201805110617027_CambiosSeccionAlumno.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -125,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805110041558_CambiosUsuario.resx">
       <DependentUpon>201805110041558_CambiosUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805110617027_CambiosSeccionAlumno.resx">
+      <DependentUpon>201805110617027_CambiosSeccionAlumno.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

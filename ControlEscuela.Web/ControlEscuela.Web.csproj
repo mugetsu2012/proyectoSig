@@ -146,11 +146,14 @@
     </Compile>
     <Compile Include="Helpers\UtilidadesMvc.cs" />
     <Compile Include="Models\AgregarEditarAlumnoVm.cs" />
+    <Compile Include="Models\AgregarEditarMateriaVm.cs" />
     <Compile Include="Models\AgregarEditarSeccionGradoVm.cs" />
     <Compile Include="Models\AgregarEditarProfesorVm.cs" />
     <Compile Include="Models\AgregarEditarUsuarioVm.cs" />
     <Compile Include="Models\DocentesVm.cs" />
     <Compile Include="Models\GradoVm.cs" />
+    <Compile Include="Models\ListadoAlumnosVm.cs" />
+    <Compile Include="Models\MateriasVm.cs" />
     <Compile Include="Models\UsuariosVm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -390,7 +393,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Alumnos\Listado.cshtml" />
-    <Content Include="Views\Alumnos\AgregarEditar.cshtml" />
+    <Content Include="Views\Alumnos\Alumno.cshtml" />
     <Content Include="Views\Asignaturas\Listado.cshtml" />
     <Content Include="Views\Grados\Listado.cshtml" />
     <Content Include="Views\Grados\RegistrarAsistencia.cshtml" />
@@ -404,6 +407,7 @@
     <Content Include="Views\Administracion\_FrmDocente.cshtml" />
     <Content Include="Views\Administracion\_FrmUsuarios.cshtml" />
     <Content Include="Views\Grados\_FrmSeccionGrado.cshtml" />
+    <Content Include="Views\Asignaturas\_FrmMateria.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

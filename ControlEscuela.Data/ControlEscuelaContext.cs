@@ -53,8 +53,6 @@ namespace ControlEscuela.Data
 
         public DbSet<Rol> Roles { get; set; }
 
-        public DbSet<SeccionGradoAlumno> SeccionesGradoAlumno { get; set; }
-
         public DbSet<SeccionGrado> SeccionesGrado { get; set; }
 
         public DbSet<Usuario> Usuarios { get; set; }
@@ -79,7 +77,6 @@ namespace ControlEscuela.Data
             modelBuilder.Configurations.Add(new ProfesorMap());
             modelBuilder.Configurations.Add(new ReporteMensualConductaMap());
             modelBuilder.Configurations.Add(new RolMap());
-            modelBuilder.Configurations.Add(new SeccionGradoAlumnoMap());
             modelBuilder.Configurations.Add(new SeccionGradoMap());
             modelBuilder.Configurations.Add(new UsuarioMap());
 

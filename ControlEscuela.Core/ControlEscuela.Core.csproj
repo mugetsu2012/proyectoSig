@@ -71,7 +71,6 @@
     <Compile Include="Model\Alumnos\ReporteMensualConducta.cs" />
     <Compile Include="Model\Usuarios\Rol.cs" />
     <Compile Include="Model\Grados\SeccionGrado.cs" />
-    <Compile Include="Model\Grados\SeccionGradoAlumno.cs" />
     <Compile Include="Model\Usuarios\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

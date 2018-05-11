@@ -1,43 +1,45 @@
-﻿@{
+﻿@model ControlEscuela.Web.Models.ListadoAlumnosVm
+@{
     ViewBag.Title = "Listado Alumnos";
     ViewBag.TituloPagina = "Busqueda de Alumnos";
 }
 
 <div class="row">
-<div class="col-md-12">
-    <div class="card">
-        <form method="get" action="/" class="form-horizontal">
-            <div class="card-header card-header-text" data-background-color="rose">
-                <h4 class="card-title">Filtros</h4>
-            </div>
-            <div class="card-content">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <input type="text" value="" placeholder="Nombre" class="form-control" />
+    <div class="col-md-12">
+        <div class="card">
+            <form method="get" action="/" class="form-horizontal"></form>
+            @using (Html.BeginForm("Listado", "Alumnos", FormMethod.Get, new { @class = "form-horizontal" }))
+            {
+                <div class="card-header card-header-text" data-background-color="rose">
+                    <h4 class="card-title">Filtros</h4>
+                </div>
+                <div class="card-content">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.Nombre, new { placeholder = "Nombre", @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.Nie, new { placeholder = "NIE", @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            @Html.DropDownListFor(x => x.IdSeccionGrado, Model.SeccionesGrado.Select(secc => new SelectListItem()
+                            {
+                                Text = secc.Grado.TextoGrado + " " + secc.LetraCorrelativo,
+                                Value = secc.Codigo.ToString()
+                            }).ToList(),"TODOS",new { @class="selectpicker", data_style="btn btn-primary btn-round", title="Seleccione un grado", data_size=Model.SeccionesGrado.Count })
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <input type="text" value="" placeholder="NIE" class="form-control" />
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <select class="selectpicker" data-style="btn btn-primary btn-round" title="Single Select" data-size="7">
-                            <option disabled selected>Seleccione un grado</option>
-                            <option value="2">7º A</option>
-                            <option value="3">5º B</option>
-                            <option value="3">2º C</option>
-                        </select>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-rose btn-fill btn-wd">Buscar</button>
                     </div>
                 </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-rose btn-fill btn-wd">Buscar</button>
-                </div>
-            </div>
-        </form>
+            }
+        </div>
     </div>
-</div>
     <div class="col-md-12">
         <div class="card">
             <div class="card-header card-header-icon" data-background-color="rose">
@@ -45,126 +47,102 @@
             </div>
             <div class="card-content">
                 <h4 class="card-title">Listado Alumnos</h4>
+                <div class="text-left">
+                    <a class="btn btn-success btn-fill btn-wd" href="@Url.Action("Alumno","Alumnos")" target="_blank">Nuevo</a>
+                </div>
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
-                        <tr>
-                            
-                            <th>Nombre completo</th>
-                            <th>Edad</th>
-                            <th>NIE</th>
-                            <th>Grado</th>
-                            <th>Encargado</th>
-                            <th>Teléfono Encargado</th>
-                            <th class="text-right"></th>
-                        </tr>
+                            <tr>
+
+                                <th>Nombre completo</th>
+                                <th>Edad</th>
+                                <th>NIE</th>
+                                <th>Grado</th>
+                                <th>Encargado</th>
+                                <th>Teléfono Encargado</th>
+                                <th class="text-right"></th>
+                            </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            
-                            <td>Juan Perez</td>
-                            <td>13</td>
-                            <td>324455</td>
-                            <td>7º B</td>
-                            <td>Maria Perez</td>
-                            <td>2278-8854</td>
-                            <td class="td-actions text-right">
-                                <button type="button" rel="tooltip" class="btn btn-info">
-                                    <i class="material-icons">person</i>
-                                </button>
-                                <button type="button" rel="tooltip" class="btn btn-success">
-                                    <i class="material-icons">edit</i>
-                                </button>
-                                <button type="button" rel="tooltip" class="btn btn-danger">
-                                    <i class="material-icons">close</i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            
-                            <td>Maria Ochoa</td>
-                            <td>11</td>
-                            <td>765918</td>
-                            <td>4º B</td>
-                            <td>Ernesto Ochoa</td>
-                            <td>6987-2145</td>
-                            <td class="td-actions text-right">
-                                <button type="button" rel="tooltip" class="btn btn-info">
-                                    <i class="material-icons">person</i>
-                                </button>
-                                <button type="button" rel="tooltip" class="btn btn-success">
-                                    <i class="material-icons">edit</i>
-                                </button>
-                                <button type="button" rel="tooltip" class="btn btn-danger">
-                                    <i class="material-icons">close</i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            
-                            <td>Baltazar Valencia</td>
-                            <td>12</td>
-                            <td>852778</td>
-                            <td>3º B</td>
-                            <td>Mirna Valencia</td>
-                            <td>7716-4415</td>
-                            <td class="td-actions text-right">
-                                <button type="button" rel="tooltip" class="btn btn-info">
-                                    <i class="material-icons">person</i>
-                                </button>
-                                <button type="button" rel="tooltip" class="btn btn-success">
-                                    <i class="material-icons">edit</i>
-                                </button>
-                                <button type="button" rel="tooltip" class="btn btn-danger">
-                                    <i class="material-icons">close</i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            
-                            <td>Patrico Cuellar</td>
-                            <td>16</td>
-                            <td>456578</td>
-                            <td>9º B</td>
-                            <td>Maria Perez</td>
-                            <td>2278-8854</td>
-                            <td class="td-actions text-right">
-                                <button type="button" rel="tooltip" class="btn btn-info">
-                                    <i class="material-icons">person</i>
-                                </button>
-                                <button type="button" rel="tooltip" class="btn btn-success">
-                                    <i class="material-icons">edit</i>
-                                </button>
-                                <button type="button" rel="tooltip" class="btn btn-danger">
-                                    <i class="material-icons">close</i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            
-                            <td>Fernanda Rosales</td>
-                            <td>12</td>
-                            <td>426414</td>
-                            <td>5º B</td>
-                            <td>Rafael Rosales</td>
-                            <td>2245-5455</td>
-                            <td class="td-actions text-right">
-                                <button type="button" rel="tooltip" class="btn btn-info">
-                                    <i class="material-icons">person</i>
-                                </button>
-                                <button type="button" rel="tooltip" class="btn btn-success">
-                                    <i class="material-icons">edit</i>
-                                </button>
-                                <button type="button" rel="tooltip" class="btn btn-danger">
-                                    <i class="material-icons">close</i>
-                                </button>
-                            </td>
-                        </tr>
+                            @foreach (var item in Model.Estudiantes)
+                            {
+                                <tr>
+
+                                    <td>@item.Nombres @item.Apellidos</td>
+                                    <td>@item.CalcularEdad()</td>
+                                    <td>@item.Nie</td>
+                                    <td>@item.SeccionGrado.Grado.TextoGrado @item.SeccionGrado.LetraCorrelativo</td>
+                                    <td>@item.NombreEncargado</td>
+                                    <td>@item.TelefonoEncargado</td>
+                                    <td class="td-actions text-right">
+                                        <button type="button" rel="tooltip" class="btn btn-success btnEdit" data-url="@Url.Action("Alumno","Alumnos", new {idAlumno = item.Codigo})">
+                                            <i class="material-icons">edit</i>
+                                        </button>
+                                        @if (item.Activo)
+                                        {
+
+
+                                            <button type="button" rel="tooltip" title="Desactivar" class="btn btn-danger toggleEstadoAlumno" data-codigo="@item.Codigo">
+                                                <i class="material-icons">thumb_down</i>
+                                            </button>
+                                        }
+                                        else
+                                        {
+                                            <button type="button" rel="tooltip" title="Activar" class="btn btn-success toggleEstadoAlumno" data-codigo="@item.Codigo">
+                                                <i class="material-icons">thumb_up</i>
+                                            </button>
+                                        }
+                                    </td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div>
-               
+
             </div>
         </div>
     </div>
 </div>
+
+<input type="hidden" id="urlToggleAlumno" value="@Url.Action("ToggleEstadoAlumno","Alumnos")" />
+
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+
+            $(document).on("click",".btnEdit", function(e) {
+                e.preventDefault();
+                var url = $(this).data('url');
+                window.location.href = url;
+            });
+
+            $(document).on("click", ".toggleEstadoAlumno", function (e) {
+                e.preventDefault();
+                swal({});
+                swal.showLoading();
+
+                var idAlumno = $(this).data('codigo');
+
+                var url = $("#urlToggleAlumno").val();
+
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: { idAlumno: idAlumno },
+                    success: function (data) {
+
+                        location.reload(true);
+                    },
+                    error: function () {
+                        swal("Oops!", "Al parecer ha ocurriodo un error", "error");
+                    }
+                });
+
+
+            });
+
+        });
+    </script>
+}

@@ -33,9 +33,9 @@ namespace ControlEscuela.Services
             _asistenciaRepository.Dispose();
         }
 
-        public void AgregarEditarEstudiante(Estudiante estudiante, bool esNuevo)
+        public void AgregarEditarEstudiante(Estudiante estudiante)
         {
-            if (esNuevo)
+            if (estudiante.Codigo == 0)
             {
                 _estudianteRepository.Insert(estudiante);
             }

@@ -44,7 +44,7 @@ namespace ControlEscuela.Core.Model.Grados
 
         public List<Actividad> Actividades { get; set; }
 
-        public List<SeccionGradoAlumno> SeccionesGradoAlumnos { get; set; }
+        public List<Estudiante> Estudiantes { get; set; }
 
         public string GetTextoNombre()
         {

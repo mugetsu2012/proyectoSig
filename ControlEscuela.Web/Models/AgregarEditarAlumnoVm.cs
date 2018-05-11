@@ -8,6 +8,11 @@ namespace ControlEscuela.Web.Models
 {
     public class AgregarEditarAlumnoVm
     {
+        public AgregarEditarAlumnoVm()
+        {
+            FechaNacimiento = new DateTime(1950,1,1);
+            Activo = true;
+        }
         /// <summary>
         /// Numero de indentificacion
         /// </summary>
@@ -29,6 +34,12 @@ namespace ControlEscuela.Web.Models
         public string Apellidos { get; set; }
 
         public DateTime FechaNacimiento { get; set; }
+
+        public bool Activo { get; set; }
+
+        public int Codigo { get; set; }
+
+        public List<SeccionGrado> SeccionesGrado { get; set; }
         
     }
 }

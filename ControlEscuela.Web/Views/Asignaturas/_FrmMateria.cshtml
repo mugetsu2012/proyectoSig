@@ -1,0 +1,31 @@
+﻿@model ControlEscuela.Web.Models.AgregarEditarMateriaVm
+@{
+    Layout = null;
+}
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                <i class="material-icons">clear</i>
+            </button>
+            <h4 class="modal-title">Agregar Asignatura</h4>
+        </div>
+        @using (Html.BeginForm("AgregarEditarAsignatura", "Asignaturas", FormMethod.Post))
+        {
+            <div class="modal-body">
+                <div class="form-group label-floating">
+                    <label class="control-label">Nombre
+                        <star>*</star>
+                    </label>
+                    @Html.TextBoxFor(x => x.Nombre, new { @class = "form-control" })
+                    @Html.HiddenFor(x => x.Codigo)
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success">Agregar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            </div>
+        }
+       
+    </div>
+</div>

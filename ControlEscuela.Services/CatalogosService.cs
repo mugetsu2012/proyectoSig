@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using ControlEscuela.Core;
@@ -33,7 +34,10 @@ namespace ControlEscuela.Services
 
         public List<SeccionGrado> GetSeccionesGrados()
         {
-            return _seccionGradoRepository.GetList(x => true);
+            return _seccionGradoRepository.GetList(x => true, new Expression<Func<SeccionGrado, object>>[]
+            {
+                x => x.Grado
+            });
         }
 
         public List<Asignatura> GetAsignaturas()
