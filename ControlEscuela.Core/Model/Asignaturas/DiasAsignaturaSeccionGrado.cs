@@ -19,8 +19,8 @@ namespace ControlEscuela.Core.Model.Asignaturas
 
         public string TextoDiaSemana
         {
-            get => DiaSemana.ToString();
-            set => DiaSemana = (Enums.DiasSemana)Enum.Parse(typeof(Enums.DiasSemana), value);
+            get {return DiaSemana.ToString(); } 
+            set { DiaSemana = (Enums.DiasSemana)Enum.Parse(typeof(Enums.DiasSemana), value); } 
         }
 
         public AsignaturaSeccionGrado AsignaturaSeccionGrado { get; set; }

@@ -12,10 +12,10 @@ namespace ControlEscuela.Core.Model.Grados
         /// </summary>
         public  Enums.NombresGrados NombreGrado { get; set; }
 
-        public string TextoGrado    
+        public string TextoGrado
         {
-            get => NombreGrado.ToString();
-            set => NombreGrado = (Enums.NombresGrados)Enum.Parse(typeof(Enums.NombresGrados), value);
+            get { return NombreGrado.ToString(); }
+            set { NombreGrado = (Enums.NombresGrados) Enum.Parse(typeof(Enums.NombresGrados), value); }
         }
 
         /// <summary>

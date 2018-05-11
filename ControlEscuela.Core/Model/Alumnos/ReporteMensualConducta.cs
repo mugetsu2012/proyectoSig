@@ -38,8 +38,8 @@ namespace ControlEscuela.Core.Model.Alumnos
 
         public string TextoConducta 
         {
-            get => TipoConducta.ToString();
-            set => TipoConducta = (Enums.TipoConducta)Enum.Parse(typeof(Enums.TipoConducta), value);
+            get {return TipoConducta.ToString(); } 
+            set { TipoConducta = (Enums.TipoConducta)Enum.Parse(typeof(Enums.TipoConducta), value); }
         }
 
         public Estudiante Estudiante { get; set; }

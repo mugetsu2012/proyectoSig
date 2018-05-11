@@ -32,8 +32,8 @@ namespace ControlEscuela.Core.Model.Grados
 
         public string TextoTurno
         {
-            get => Turno.ToString();
-            set => Turno = (Enums.Turno)Enum.Parse(typeof(Enums.Turno), value);
+            get { return Turno.ToString(); }
+            set { Turno = (Enums.Turno)Enum.Parse(typeof(Enums.Turno), value); } 
         }
 
         public Grado Grado { get; set; }

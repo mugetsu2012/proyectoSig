@@ -35,8 +35,8 @@ namespace ControlEscuela.Core.Model.Alumnos
 
         public string TextoTipoFalta
         {
-            get => TipoFalta.ToString();
-            set => TipoFalta = (Enums.TipoFalta)Enum.Parse(typeof(Enums.TipoFalta), value);
+            get {return TipoFalta.ToString(); } 
+            set { TipoFalta = (Enums.TipoFalta)Enum.Parse(typeof(Enums.TipoFalta), value); } 
         }
 
         public Estudiante Estudiante { get; set; }
